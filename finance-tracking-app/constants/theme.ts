@@ -31,6 +31,12 @@ export const Colors = {
     background: "#429690",
     text: "#FFFFFF",
   },
+  CASH_IN: {
+    text: "green",
+  },
+  CASH_OUT: {
+    text: "red",
+  },
 };
 
 export const FontSizes = {

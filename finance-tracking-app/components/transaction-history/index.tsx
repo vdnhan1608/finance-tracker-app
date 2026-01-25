@@ -1,4 +1,4 @@
-import { View, StyleSheet, Text, Image } from "react-native";
+import { View, StyleSheet, Text, Image, ScrollView } from "react-native";
 import { Colors, FontSizes } from "@/constants/theme";
 export default function TransactionHistory() {
   const transactionHistoryList = [
@@ -8,6 +8,7 @@ export default function TransactionHistory() {
       amount: 850,
       time: "Today",
       urlImage: "",
+      isCashIn: true,
     },
     {
       id: "2",
@@ -15,6 +16,7 @@ export default function TransactionHistory() {
       amount: 850,
       time: "Yesterday",
       urlImage: "",
+      isCashIn: false,
     },
     {
       id: "3",
@@ -22,6 +24,7 @@ export default function TransactionHistory() {
       amount: 850,
       time: "Jan 30, 2022",
       urlImage: "",
+      isCashIn: false,
     },
     {
       id: "4",
@@ -29,6 +32,7 @@ export default function TransactionHistory() {
       amount: 850,
       time: "Jan 16, 2022",
       urlImage: "",
+      isCashIn: true,
     },
     {
       id: "1",
@@ -36,6 +40,7 @@ export default function TransactionHistory() {
       amount: 850,
       time: "Today",
       urlImage: "",
+      isCashIn: true,
     },
     {
       id: "2",
@@ -43,6 +48,7 @@ export default function TransactionHistory() {
       amount: 850,
       time: "Yesterday",
       urlImage: "",
+      isCashIn: false,
     },
     {
       id: "3",
@@ -50,6 +56,7 @@ export default function TransactionHistory() {
       amount: 850,
       time: "Jan 30, 2022",
       urlImage: "",
+      isCashIn: true,
     },
     {
       id: "4",
@@ -57,6 +64,7 @@ export default function TransactionHistory() {
       amount: 850,
       time: "Jan 16, 2022",
       urlImage: "",
+      isCashIn: true,
     },
     {
       id: "1",
@@ -64,6 +72,7 @@ export default function TransactionHistory() {
       amount: 850,
       time: "Today",
       urlImage: "",
+      isCashIn: true,
     },
     {
       id: "2",
@@ -71,6 +80,7 @@ export default function TransactionHistory() {
       amount: 850,
       time: "Yesterday",
       urlImage: "",
+      isCashIn: true,
     },
     {
       id: "3",
@@ -78,6 +88,7 @@ export default function TransactionHistory() {
       amount: 850,
       time: "Jan 30, 2022",
       urlImage: "",
+      isCashIn: true,
     },
     {
       id: "4",
@@ -85,6 +96,7 @@ export default function TransactionHistory() {
       amount: 850,
       time: "Jan 16, 2022",
       urlImage: "",
+      isCashIn: true,
     },
     {
       id: "1",
@@ -92,6 +104,7 @@ export default function TransactionHistory() {
       amount: 850,
       time: "Today",
       urlImage: "",
+      isCashIn: true,
     },
     {
       id: "2",
@@ -99,6 +112,7 @@ export default function TransactionHistory() {
       amount: 850,
       time: "Yesterday",
       urlImage: "",
+      isCashIn: true,
     },
     {
       id: "3",
@@ -106,6 +120,7 @@ export default function TransactionHistory() {
       amount: 850,
       time: "Jan 30, 2022",
       urlImage: "",
+      isCashIn: true,
     },
     {
       id: "4",
@@ -113,9 +128,13 @@ export default function TransactionHistory() {
       amount: 850,
       time: "Jan 16, 2022",
       urlImage: "",
+      isCashIn: true,
     },
   ];
-
+  const displayAmount = (transaction: any) => {
+    const prefix = transaction.isCashIn ? "+" : "-";
+    return `${prefix} ${transaction.amount} VND`;
+  };
   return (
     <View style={styles.container}>
       <View style={styles.title}>
@@ -124,14 +143,17 @@ export default function TransactionHistory() {
         </Text>
         <Text style={{ fontSize: FontSizes.normal }}>See all</Text>
       </View>
-      <View style={styles.transactionHistoryList}>
+      <ScrollView
+        style={styles.transactionHistoryList}
+        showsVerticalScrollIndicator={false}
+      >
         {transactionHistoryList.map((transactionHistory) => {
           return (
             <View style={styles.transactionHistoryUnit}>
               <View style={styles.transactionNameTimeImageContainer}>
                 <Image
                   style={styles.image}
-                  source={require("@/assets/images/icon.png")}
+                  source={require("@/assets/images/upwork.png")}
                 ></Image>
                 <View style={{ marginLeft: 20 }}>
                   <Text style={{ fontSize: 19, fontWeight: "500" }}>
@@ -142,13 +164,21 @@ export default function TransactionHistory() {
                   </Text>
                 </View>
               </View>
-              <Text style={{ fontSize: FontSizes.semi }}>
-                $ {transactionHistory.amount}
+              <Text
+                style={{
+                  fontSize: FontSizes.semi,
+                  color: transactionHistory.isCashIn
+                    ? Colors.CASH_IN.text
+                    : Colors.CASH_OUT.text,
+                  fontWeight: "500",
+                }}
+              >
+                {displayAmount(transactionHistory)}
               </Text>
             </View>
           );
         })}
-      </View>
+      </ScrollView>
     </View>
   );
 }
