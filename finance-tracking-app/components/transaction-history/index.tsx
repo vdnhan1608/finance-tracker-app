@@ -5,130 +5,74 @@ export default function TransactionHistory() {
     {
       id: "1",
       name: "Upwork",
-      amount: 850,
+      amount: "850.00",
       time: "Today",
-      urlImage: "",
+      urlImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTevPoVZohhZQJC3KYgbLP8JDvFe3IbWvuDpw&s",
       isCashIn: true,
     },
     {
       id: "2",
       name: "Transfer",
-      amount: 850,
+      amount: "85.00",
       time: "Yesterday",
-      urlImage: "",
+      urlImage:
+        "https://scontent.fsgn5-8.fna.fbcdn.net/v/t39.30808-1/605662434_2938825992974529_2495439344650544257_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e99d92&_nc_ohc=V4DGM6u_z-EQ7kNvwEIKWuC&_nc_oc=Adl6rHtr6u2j87iXjtWlib-inai1Vro8kpXumLk0aWpTG-F8A_RURbns1EEBSMzy2Fk&_nc_zt=24&_nc_ht=scontent.fsgn5-8.fna&_nc_gid=F_2IdH4f3NYXC3hN-y9nrA&oh=00_Afv3FHsQgLF10UQjxDXh-Ov0CPOadRnLfh_xefULfVOsgg&oe=69853578",
       isCashIn: false,
     },
     {
       id: "3",
       name: "Papal",
-      amount: 850,
+      amount: "1,406.00",
       time: "Jan 30, 2022",
-      urlImage: "",
+      urlImage:
+        "https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png",
+      isCashIn: true,
+    },
+    {
+      id: "4",
+      name: "Youtube",
+      amount: "11.99",
+      time: "Jan 16, 2022",
+      urlImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWK7U1qR8TSAuBf4OEb-SerRUliMZK3OwOeg&s",
       isCashIn: false,
     },
     {
-      id: "4",
-      name: "Youtube",
-      amount: 850,
-      time: "Jan 16, 2022",
-      urlImage: "",
-      isCashIn: true,
-    },
-    {
       id: "1",
       name: "Upwork",
-      amount: 850,
+      amount: "850.00",
       time: "Today",
-      urlImage: "",
+      urlImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTevPoVZohhZQJC3KYgbLP8JDvFe3IbWvuDpw&s",
       isCashIn: true,
     },
     {
       id: "2",
       name: "Transfer",
-      amount: 850,
+      amount: "85.00",
       time: "Yesterday",
-      urlImage: "",
+      urlImage:
+        "https://scontent.fsgn5-8.fna.fbcdn.net/v/t39.30808-1/605662434_2938825992974529_2495439344650544257_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e99d92&_nc_ohc=V4DGM6u_z-EQ7kNvwEIKWuC&_nc_oc=Adl6rHtr6u2j87iXjtWlib-inai1Vro8kpXumLk0aWpTG-F8A_RURbns1EEBSMzy2Fk&_nc_zt=24&_nc_ht=scontent.fsgn5-8.fna&_nc_gid=F_2IdH4f3NYXC3hN-y9nrA&oh=00_Afv3FHsQgLF10UQjxDXh-Ov0CPOadRnLfh_xefULfVOsgg&oe=69853578",
       isCashIn: false,
     },
     {
       id: "3",
       name: "Papal",
-      amount: 850,
+      amount: "1,406.00",
       time: "Jan 30, 2022",
-      urlImage: "",
+      urlImage:
+        "https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png",
       isCashIn: true,
     },
     {
       id: "4",
       name: "Youtube",
-      amount: 850,
+      amount: "11.99",
       time: "Jan 16, 2022",
-      urlImage: "",
-      isCashIn: true,
-    },
-    {
-      id: "1",
-      name: "Upwork",
-      amount: 850,
-      time: "Today",
-      urlImage: "",
-      isCashIn: true,
-    },
-    {
-      id: "2",
-      name: "Transfer",
-      amount: 850,
-      time: "Yesterday",
-      urlImage: "",
-      isCashIn: true,
-    },
-    {
-      id: "3",
-      name: "Papal",
-      amount: 850,
-      time: "Jan 30, 2022",
-      urlImage: "",
-      isCashIn: true,
-    },
-    {
-      id: "4",
-      name: "Youtube",
-      amount: 850,
-      time: "Jan 16, 2022",
-      urlImage: "",
-      isCashIn: true,
-    },
-    {
-      id: "1",
-      name: "Upwork",
-      amount: 850,
-      time: "Today",
-      urlImage: "",
-      isCashIn: true,
-    },
-    {
-      id: "2",
-      name: "Transfer",
-      amount: 850,
-      time: "Yesterday",
-      urlImage: "",
-      isCashIn: true,
-    },
-    {
-      id: "3",
-      name: "Papal",
-      amount: 850,
-      time: "Jan 30, 2022",
-      urlImage: "",
-      isCashIn: true,
-    },
-    {
-      id: "4",
-      name: "Youtube",
-      amount: 850,
-      time: "Jan 16, 2022",
-      urlImage: "",
-      isCashIn: true,
+      urlImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWK7U1qR8TSAuBf4OEb-SerRUliMZK3OwOeg&s",
+      isCashIn: false,
     },
   ];
   const displayAmount = (transaction: any) => {
@@ -153,7 +97,7 @@ export default function TransactionHistory() {
               <View style={styles.transactionNameTimeImageContainer}>
                 <Image
                   style={styles.image}
-                  source={require("@/assets/images/upwork.png")}
+                  source={{ uri: transactionHistory.urlImage }}
                 ></Image>
                 <View style={{ marginLeft: 20 }}>
                   <Text style={{ fontSize: 19, fontWeight: "500" }}>
@@ -210,6 +154,7 @@ const styles = StyleSheet.create({
   image: {
     width: 50,
     height: 50,
+    borderRadius: 10,
   },
   transactionNameTimeImageContainer: {
     display: "flex",
