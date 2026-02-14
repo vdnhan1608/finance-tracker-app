@@ -1,7 +1,79 @@
-import { View, StyleSheet, Text, Image, ScrollView } from "react-native";
 import { Colors, FontSizes } from "@/constants/theme";
+import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 export default function TransactionHistory() {
   const transactionHistoryList = [
+    {
+      id: "1",
+      name: "Upwork",
+      amount: "850.00",
+      time: "Today",
+      urlImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTevPoVZohhZQJC3KYgbLP8JDvFe3IbWvuDpw&s",
+      isCashIn: true,
+    },
+    {
+      id: "2",
+      name: "Transfer",
+      amount: "85.00",
+      time: "Yesterday",
+      urlImage:
+        "https://scontent.fsgn5-8.fna.fbcdn.net/v/t39.30808-1/605662434_2938825992974529_2495439344650544257_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e99d92&_nc_ohc=V4DGM6u_z-EQ7kNvwEIKWuC&_nc_oc=Adl6rHtr6u2j87iXjtWlib-inai1Vro8kpXumLk0aWpTG-F8A_RURbns1EEBSMzy2Fk&_nc_zt=24&_nc_ht=scontent.fsgn5-8.fna&_nc_gid=F_2IdH4f3NYXC3hN-y9nrA&oh=00_Afv3FHsQgLF10UQjxDXh-Ov0CPOadRnLfh_xefULfVOsgg&oe=69853578",
+      isCashIn: false,
+    },
+    {
+      id: "3",
+      name: "Papal",
+      amount: "1,406.00",
+      time: "Jan 30, 2022",
+      urlImage:
+        "https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png",
+      isCashIn: true,
+    },
+    {
+      id: "4",
+      name: "Youtube",
+      amount: "11.99",
+      time: "Jan 16, 2022",
+      urlImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWK7U1qR8TSAuBf4OEb-SerRUliMZK3OwOeg&s",
+      isCashIn: false,
+    },
+    {
+      id: "1",
+      name: "Upwork",
+      amount: "850.00",
+      time: "Today",
+      urlImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTevPoVZohhZQJC3KYgbLP8JDvFe3IbWvuDpw&s",
+      isCashIn: true,
+    },
+    {
+      id: "2",
+      name: "Transfer",
+      amount: "85.00",
+      time: "Yesterday",
+      urlImage:
+        "https://scontent.fsgn5-8.fna.fbcdn.net/v/t39.30808-1/605662434_2938825992974529_2495439344650544257_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e99d92&_nc_ohc=V4DGM6u_z-EQ7kNvwEIKWuC&_nc_oc=Adl6rHtr6u2j87iXjtWlib-inai1Vro8kpXumLk0aWpTG-F8A_RURbns1EEBSMzy2Fk&_nc_zt=24&_nc_ht=scontent.fsgn5-8.fna&_nc_gid=F_2IdH4f3NYXC3hN-y9nrA&oh=00_Afv3FHsQgLF10UQjxDXh-Ov0CPOadRnLfh_xefULfVOsgg&oe=69853578",
+      isCashIn: false,
+    },
+    {
+      id: "3",
+      name: "Papal",
+      amount: "1,406.00",
+      time: "Jan 30, 2022",
+      urlImage:
+        "https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png",
+      isCashIn: true,
+    },
+    {
+      id: "4",
+      name: "Youtube",
+      amount: "11.99",
+      time: "Jan 16, 2022",
+      urlImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWK7U1qR8TSAuBf4OEb-SerRUliMZK3OwOeg&s",
+      isCashIn: false,
+    },
     {
       id: "1",
       name: "Upwork",
