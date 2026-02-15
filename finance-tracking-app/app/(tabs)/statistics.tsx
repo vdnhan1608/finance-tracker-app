@@ -2,7 +2,7 @@ import ModalScreen from "@/app/modal";
 import Header from "@/components/header";
 import TransactionHistory from "@/components/transaction-history/index";
 import { Dimensions, StyleSheet, View } from "react-native";
-export default function HomePage() {
+export default function Statistics() {
   return (
     <View style={styles.container}>
       <Header></Header>
