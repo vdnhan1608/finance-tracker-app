@@ -1,0 +1,21 @@
+package com.financetracking.finance_service.controller;
+
+import com.financetracking.finance_service.entity.UserEntity;
+import com.financetracking.finance_service.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+public class UserController {
+    @Autowired
+    UserService userService;
+
+    @RequestMapping("/")
+    String getUsers() {
+        List<UserEntity> userEntities =  userService.getUsers();
+        return "Hello World!";
+    }
+}

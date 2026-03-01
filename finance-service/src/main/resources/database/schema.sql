@@ -18,7 +18,7 @@ DROP TABLE IF EXISTS categories CASCADE;
 DROP TABLE IF EXISTS accounts CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE users (
-	id UUID primary key,
+	id UUID DEFAULT gen_random_uuid() primary key,
 	email TEXT UNIQUE NOT NULL,
 	name TEXT,
 	status VARCHAR(20),
@@ -28,7 +28,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE accounts (
-	id UUID primary key,
+	id UUID DEFAULT gen_random_uuid() primary key,
 	user_id UUID,
 	name TEXT NOT NULL,
 	type VARCHAR(20),
@@ -44,7 +44,7 @@ CREATE TABLE accounts (
 );
 
 CREATE TABLE categories (
-	id UUID primary key,
+	id UUID DEFAULT gen_random_uuid() primary key,
 	user_id UUID,
 	name TEXT NOT NULL,
 	type VARCHAR(10) CHECK (type IN ('income','expense')),
@@ -57,7 +57,7 @@ CREATE TABLE categories (
 
 
 CREATE TABLE transactions (
-	id UUID primary key,
+	id UUID DEFAULT gen_random_uuid() primary key,
 	user_id UUID NOT NULL,
 	from_account_id UUID NULL,
 	to_account_id UUID NULL,
