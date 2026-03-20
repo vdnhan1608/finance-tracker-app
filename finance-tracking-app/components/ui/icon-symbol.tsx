@@ -24,6 +24,8 @@ const MAPPING = {
   "chart.bar": "bar-chart",
   "wallet.pass.fill": "wallet",
   "person.2": "person",
+  "arrow.backward": "arrow-back",
+  "square.and.arrow.down": "download",
 } as IconMapping;
 
 /**

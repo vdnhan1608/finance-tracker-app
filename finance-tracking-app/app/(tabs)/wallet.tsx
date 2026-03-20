@@ -1,5 +1,5 @@
-import { View } from "react-native";
+import WalletScreen from "@/pages/WalletScreen";
 
 export default function Wallet() {
-  return <View></View>;
+  return <WalletScreen />;
 }
