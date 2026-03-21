@@ -26,6 +26,9 @@ const MAPPING = {
   "person.2": "person",
   "arrow.backward": "arrow-back",
   "square.and.arrow.down": "download",
+  "chevron.backward": "chevron-left",
+  ellipsis: "more-horiz",
+  "chevron.down": "keyboard-arrow-down",
 } as IconMapping;
 
 /**
