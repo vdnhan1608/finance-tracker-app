@@ -1,5 +1,5 @@
-import { View } from "react-native";
+import BackgroundDecoration from "@/components/back-ground-decoration";
 
 export default function Wallet() {
-  return <View></View>;
+  return <BackgroundDecoration></BackgroundDecoration>;
 }
