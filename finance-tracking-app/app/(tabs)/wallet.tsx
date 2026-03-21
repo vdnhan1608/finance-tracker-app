@@ -1,5 +1,5 @@
-import BackgroundDecoration from "@/components/back-ground-decoration";
+import WalletScreen from "@/pages/WalletScreen";
 
 export default function Wallet() {
-  return <BackgroundDecoration></BackgroundDecoration>;
+  return <WalletScreen />;
 }
