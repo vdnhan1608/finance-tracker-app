@@ -48,88 +48,108 @@ export default function WalletScreen() {
       </View>
       {/* MIDDLE MODAL */}
       <View style={styleSheet.modal}>
-        <Text style={{ color: "#666666" }}>NAME</Text>
+        {/* NAME INPUT */}
+        <View style={{ alignSelf: "center", marginTop: "10%" }}>
+          <Text style={{ color: "#666666" }}>NAME</Text>
 
-        <View style={styleSheet.input}>
-          <View style={styleSheet.inputInformation}>
-            <Image
-              style={styleSheet.image}
-              source={{
-                uri: "https://images.ctfassets.net/y2ske730sjqp/5QQ9SVIdc1tmkqrtFnG9U1/de758bba0f65dcc1c6bc1f31f161003d/BrandAssets_Logos_02-NSymbol.jpg?w=940",
+          <View style={styleSheet.input}>
+            <View style={styleSheet.inputInformation}>
+              <Image
+                style={styleSheet.image}
+                source={{
+                  uri: "https://images.ctfassets.net/y2ske730sjqp/5QQ9SVIdc1tmkqrtFnG9U1/de758bba0f65dcc1c6bc1f31f161003d/BrandAssets_Logos_02-NSymbol.jpg?w=940",
+                }}
+              ></Image>
+              <Text style={{ color: "#666666", marginStart: 20 }}>Netflix</Text>
+            </View>
+            <TouchableOpacity
+              onPress={() => {
+                console.log("chevron.backward");
               }}
-            ></Image>
-            <Text style={{ color: "#666666", marginStart: 20 }}>Netflix</Text>
+              style={{ paddingEnd: 10 }}
+            >
+              <IconSymbol size={28} name="chevron.down" color="#666666" />
+            </TouchableOpacity>
           </View>
-          <TouchableOpacity
-            onPress={() => {
-              console.log("chevron.backward");
-            }}
-          >
-            <IconSymbol size={28} name="chevron.down" color="#666666" />
-          </TouchableOpacity>
         </View>
 
-        <Text style={{ color: "#666666" }}>AMOUNT</Text>
+        {/* AMOUNT INPUT */}
+        <View style={{ alignSelf: "center", marginTop: "10%" }}>
+          <Text style={{ color: "#666666" }}>AMOUNT</Text>
 
-        <View style={styleSheet.input}>
-          <View style={styleSheet.inputInformation}>
-            <Image
-              style={styleSheet.image}
-              source={{
-                uri: "https://images.ctfassets.net/y2ske730sjqp/5QQ9SVIdc1tmkqrtFnG9U1/de758bba0f65dcc1c6bc1f31f161003d/BrandAssets_Logos_02-NSymbol.jpg?w=940",
+          <View style={styleSheet.input}>
+            <View style={styleSheet.inputInformation}>
+              <Text
+                style={{
+                  color: "#666666",
+                }}
+              >
+                $ 48.00
+              </Text>
+            </View>
+            <TouchableOpacity
+              onPress={() => {
+                console.log("chevron.backward");
               }}
-            ></Image>
-            <Text style={{ color: "#666666", marginStart: 20 }}>Netflix</Text>
+            >
+              <Text style={{ color: "#666666", paddingEnd: 10 }}>Clear</Text>
+            </TouchableOpacity>
           </View>
-          <TouchableOpacity
-            onPress={() => {
-              console.log("chevron.backward");
-            }}
-          >
-            <IconSymbol size={28} name="chevron.down" color="#666666" />
-          </TouchableOpacity>
         </View>
 
-        <Text style={{ color: "#666666" }}>DATE</Text>
+        {/* DATE INPUT */}
+        <View style={{ alignSelf: "center", marginTop: "10%" }}>
+          <Text style={{ color: "#666666" }}>DATE</Text>
 
-        <View style={styleSheet.input}>
-          <View style={styleSheet.inputInformation}>
-            <Image
-              style={styleSheet.image}
-              source={{
-                uri: "https://images.ctfassets.net/y2ske730sjqp/5QQ9SVIdc1tmkqrtFnG9U1/de758bba0f65dcc1c6bc1f31f161003d/BrandAssets_Logos_02-NSymbol.jpg?w=940",
+          <View style={styleSheet.input}>
+            <View style={styleSheet.inputInformation}>
+              <Text style={{ color: "#666666" }}>Tue, 22 Feb 2022</Text>
+            </View>
+            <TouchableOpacity
+              onPress={() => {
+                console.log("chevron.backward");
               }}
-            ></Image>
-            <Text style={{ color: "#666666", marginStart: 20 }}>Netflix</Text>
+              style={{ paddingEnd: 10 }}
+            >
+              <IconSymbol size={28} name="calendar" color="#666666" />
+            </TouchableOpacity>
           </View>
-          <TouchableOpacity
-            onPress={() => {
-              console.log("chevron.backward");
-            }}
-          >
-            <IconSymbol size={28} name="chevron.down" color="#666666" />
-          </TouchableOpacity>
         </View>
 
-        <Text style={{ color: "#666666" }}>INVOICE</Text>
+        {/* INVOICE INPUT */}
+        <View
+          style={{
+            alignSelf: "center",
+            marginTop: "10%",
+            width: "90%",
+          }}
+        >
+          <Text style={{ color: "#666666" }}>INVOICE</Text>
 
-        <View style={styleSheet.input}>
-          <View style={styleSheet.inputInformation}>
-            <Image
-              style={styleSheet.image}
-              source={{
-                uri: "https://images.ctfassets.net/y2ske730sjqp/5QQ9SVIdc1tmkqrtFnG9U1/de758bba0f65dcc1c6bc1f31f161003d/BrandAssets_Logos_02-NSymbol.jpg?w=940",
-              }}
-            ></Image>
-            <Text style={{ color: "#666666", marginStart: 20 }}>Netflix</Text>
-          </View>
-          <TouchableOpacity
-            onPress={() => {
-              console.log("chevron.backward");
+          <View
+            style={{
+              ...styleSheet.input,
+              justifyContent: "center",
+              width: "100%",
             }}
           >
-            <IconSymbol size={28} name="chevron.down" color="#666666" />
-          </TouchableOpacity>
+            <View
+              style={{
+                ...styleSheet.inputInformation,
+                paddingStart: 0,
+              }}
+            >
+              <TouchableOpacity
+                onPress={() => {
+                  console.log("chevron.backward");
+                }}
+                style={{ paddingEnd: 10 }}
+              >
+                <IconSymbol size={28} name="plus.circle" color="#666666" />
+              </TouchableOpacity>
+              <Text style={{ color: "#666666" }}>Add Invoice</Text>
+            </View>
+          </View>
         </View>
       </View>
     </View>

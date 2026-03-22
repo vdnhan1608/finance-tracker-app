@@ -29,6 +29,8 @@ const MAPPING = {
   "chevron.backward": "chevron-left",
   ellipsis: "more-horiz",
   "chevron.down": "keyboard-arrow-down",
+  calendar: "calendar-today",
+  "plus.circle": "add-circle",
 } as IconMapping;
 
 /**
