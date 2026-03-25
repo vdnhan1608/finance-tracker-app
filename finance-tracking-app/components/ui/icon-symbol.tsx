@@ -31,6 +31,8 @@ const MAPPING = {
   "chevron.down": "keyboard-arrow-down",
   calendar: "calendar-today",
   "plus.circle": "add-circle",
+  "circle.badge.plus.fill": "add-circle-outline",
+  "grid.circle": "grid-view",
 } as IconMapping;
 
 /**
