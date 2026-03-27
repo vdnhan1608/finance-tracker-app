@@ -1,192 +1,273 @@
-import BackgroundDecoration from "@/components/back-ground-decoration";
+import { IconSymbol } from "@/components/ui/icon-symbol";
+import { Colors, FontSizes } from "@/constants/theme";
 import {
   Image,
+  ScrollView,
   StyleSheet,
   Text,
-  TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
-import { IconSymbol } from "@/components/ui/icon-symbol";
-import { Colors } from "@/constants/theme";
-import { SCREEN_HEIGHT, SCREEN_WIDTH } from "@/constants/layout";
+import { SFSymbols7_0 } from "sf-symbols-typescript";
 export default function WalletScreen() {
+  const transactionHistoryList = [
+    {
+      id: "1",
+      name: "Upwork",
+      amount: "850.00",
+      time: "Today",
+      urlImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTevPoVZohhZQJC3KYgbLP8JDvFe3IbWvuDpw&s",
+      isCashIn: true,
+    },
+    {
+      id: "2",
+      name: "Transfer",
+      amount: "85.00",
+      time: "Yesterday",
+      urlImage:
+        "https://scontent.fsgn5-8.fna.fbcdn.net/v/t39.30808-1/605662434_2938825992974529_2495439344650544257_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e99d92&_nc_ohc=V4DGM6u_z-EQ7kNvwEIKWuC&_nc_oc=Adl6rHtr6u2j87iXjtWlib-inai1Vro8kpXumLk0aWpTG-F8A_RURbns1EEBSMzy2Fk&_nc_zt=24&_nc_ht=scontent.fsgn5-8.fna&_nc_gid=F_2IdH4f3NYXC3hN-y9nrA&oh=00_Afv3FHsQgLF10UQjxDXh-Ov0CPOadRnLfh_xefULfVOsgg&oe=69853578",
+      isCashIn: false,
+    },
+    {
+      id: "3",
+      name: "Papal",
+      amount: "1,406.00",
+      time: "Jan 30, 2022",
+      urlImage:
+        "https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png",
+      isCashIn: true,
+    },
+    {
+      id: "4",
+      name: "Youtube",
+      amount: "11.99",
+      time: "Jan 16, 2022",
+      urlImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWK7U1qR8TSAuBf4OEb-SerRUliMZK3OwOeg&s",
+      isCashIn: false,
+    },
+    {
+      id: "5",
+      name: "Upwork",
+      amount: "850.00",
+      time: "Today",
+      urlImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTevPoVZohhZQJC3KYgbLP8JDvFe3IbWvuDpw&s",
+      isCashIn: true,
+    },
+    {
+      id: "6",
+      name: "Transfer",
+      amount: "85.00",
+      time: "Yesterday",
+      urlImage:
+        "https://scontent.fsgn5-8.fna.fbcdn.net/v/t39.30808-1/605662434_2938825992974529_2495439344650544257_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=109&ccb=1-7&_nc_sid=e99d92&_nc_ohc=V4DGM6u_z-EQ7kNvwEIKWuC&_nc_oc=Adl6rHtr6u2j87iXjtWlib-inai1Vro8kpXumLk0aWpTG-F8A_RURbns1EEBSMzy2Fk&_nc_zt=24&_nc_ht=scontent.fsgn5-8.fna&_nc_gid=F_2IdH4f3NYXC3hN-y9nrA&oh=00_Afv3FHsQgLF10UQjxDXh-Ov0CPOadRnLfh_xefULfVOsgg&oe=69853578",
+      isCashIn: false,
+    },
+    {
+      id: "7",
+      name: "Papal",
+      amount: "1,406.00",
+      time: "Jan 30, 2022",
+      urlImage:
+        "https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png",
+      isCashIn: true,
+    },
+    {
+      id: "8",
+      name: "Youtube",
+      amount: "11.99",
+      time: "Jan 16, 2022",
+      urlImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWK7U1qR8TSAuBf4OEb-SerRUliMZK3OwOeg&s",
+      isCashIn: false,
+    },
+  ];
+
+  const displayAmount = (transaction: any) => {
+    const prefix = transaction.isCashIn ? "+" : "-";
+    return `${prefix} ${transaction.amount} VND`;
+  };
+
+  const miniMenuList = [
+    {
+      id: 1,
+      icon: "circle.badge.plus.fill",
+      text: "Add",
+    },
+    {
+      id: 2,
+      icon: "grid.circle",
+      text: "Pay",
+    },
+    {
+      id: 3,
+      icon: "paperplane.fill",
+      text: "Send",
+    },
+  ];
+
+  // renders
   return (
-    <View>
-      <BackgroundDecoration />
-      {/* HEADER */}
-      <View
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          flexDirection: "row",
-          justifyContent: "space-between",
-          paddingTop: 20,
-        }}
-      >
-        <TouchableOpacity
-          onPress={() => {
-            console.log("chevron.backward");
-          }}
-        >
-          <IconSymbol
-            size={28}
-            name="chevron.backward"
-            color={Colors.default.text}
-          />
-        </TouchableOpacity>
-        <Text style={{ color: Colors.default.text }}>Add expenses</Text>
-        <TouchableOpacity
-          onPress={() => {
-            console.log("Press ellipsis");
-          }}
-        >
-          <IconSymbol size={28} name="ellipsis" color={Colors.default.text} />
-        </TouchableOpacity>
-      </View>
-      {/* MIDDLE MODAL */}
-      <View style={styleSheet.modal}>
-        {/* NAME INPUT */}
-        <View style={{ alignSelf: "center", marginTop: "10%" }}>
-          <Text style={{ color: "#666666" }}>NAME</Text>
-
-          <View style={styleSheet.input}>
-            <View style={styleSheet.inputInformation}>
-              <Image
-                style={styleSheet.image}
-                source={{
-                  uri: "https://images.ctfassets.net/y2ske730sjqp/5QQ9SVIdc1tmkqrtFnG9U1/de758bba0f65dcc1c6bc1f31f161003d/BrandAssets_Logos_02-NSymbol.jpg?w=940",
-                }}
-              ></Image>
-              <Text style={{ color: "#666666", marginStart: 20 }}>Netflix</Text>
-            </View>
-            <TouchableOpacity
-              onPress={() => {
-                console.log("chevron.backward");
-              }}
-              style={{ paddingEnd: 10 }}
-            >
-              <IconSymbol size={28} name="chevron.down" color="#666666" />
-            </TouchableOpacity>
-          </View>
-        </View>
-
-        {/* AMOUNT INPUT */}
-        <View style={{ alignSelf: "center", marginTop: "10%" }}>
-          <Text style={{ color: "#666666" }}>AMOUNT</Text>
-
-          <View style={styleSheet.input}>
-            <View style={styleSheet.inputInformation}>
-              <Text
-                style={{
-                  color: "#666666",
-                }}
-              >
-                $ 48.00
-              </Text>
-            </View>
-            <TouchableOpacity
-              onPress={() => {
-                console.log("chevron.backward");
-              }}
-            >
-              <Text style={{ color: "#666666", paddingEnd: 10 }}>Clear</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-
-        {/* DATE INPUT */}
-        <View style={{ alignSelf: "center", marginTop: "10%" }}>
-          <Text style={{ color: "#666666" }}>DATE</Text>
-
-          <View style={styleSheet.input}>
-            <View style={styleSheet.inputInformation}>
-              <Text style={{ color: "#666666" }}>Tue, 22 Feb 2022</Text>
-            </View>
-            <TouchableOpacity
-              onPress={() => {
-                console.log("chevron.backward");
-              }}
-              style={{ paddingEnd: 10 }}
-            >
-              <IconSymbol size={28} name="calendar" color="#666666" />
-            </TouchableOpacity>
-          </View>
-        </View>
-
-        {/* INVOICE INPUT */}
-        <View
+    <View style={styles.container}>
+      <View style={styles.bottomSheet}>
+        {/* Info */}
+        <Text
           style={{
             alignSelf: "center",
-            marginTop: "10%",
-            width: "90%",
+            fontSize: 19,
+            color: Colors.light.icon,
+            paddingTop: "10%",
           }}
         >
-          <Text style={{ color: "#666666" }}>INVOICE</Text>
+          Total Balance
+        </Text>
+        <Text
+          style={{
+            alignSelf: "center",
+            fontSize: 36,
+            fontWeight: "bold",
+            paddingTop: 10,
+            paddingBottom: 20,
+          }}
+        >
+          $ 2,548.00
+        </Text>
 
-          <View
-            style={{
-              ...styleSheet.input,
-              justifyContent: "center",
-              width: "100%",
-            }}
-          >
+        {/* Mini menu */}
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-around",
+            marginBottom: 20,
+          }}
+        >
+          {miniMenuList.map((item) => (
             <View
               style={{
-                ...styleSheet.inputInformation,
-                paddingStart: 0,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
               }}
             >
               <TouchableOpacity
                 onPress={() => {
                   console.log("chevron.backward");
                 }}
-                style={{ paddingEnd: 10 }}
               >
-                <IconSymbol size={28} name="plus.circle" color="#666666" />
+                <IconSymbol
+                  size={50}
+                  name={item.icon as SFSymbols7_0}
+                  color={Colors.default.background}
+                />
               </TouchableOpacity>
-              <Text style={{ color: "#666666" }}>Add Invoice</Text>
+              <Text
+                style={{
+                  fontSize: 17,
+                  paddingTop: 10,
+                }}
+              >
+                {item.text}
+              </Text>
             </View>
-          </View>
+          ))}
         </View>
+
+        {/* Mini tab */}
+
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-around",
+          }}
+        >
+          <Text>Transactions</Text>
+          <Text>Upcoming Bills</Text>
+        </View>
+
+        <ScrollView
+          style={styles.transactionHistoryList}
+          showsVerticalScrollIndicator={false}
+        >
+          {transactionHistoryList.map((transactionHistory) => {
+            return (
+              <View
+                style={styles.transactionHistoryUnit}
+                key={transactionHistory.id}
+              >
+                <View style={styles.transactionNameTimeImageContainer}>
+                  <Image
+                    style={styles.image}
+                    source={{ uri: transactionHistory.urlImage }}
+                  ></Image>
+                  <View style={{ marginLeft: 20 }}>
+                    <Text style={{ fontSize: 19, fontWeight: "500" }}>
+                      {transactionHistory.name}
+                    </Text>
+                    <Text style={{ fontSize: 16 }}>
+                      {transactionHistory.time}
+                    </Text>
+                  </View>
+                </View>
+                <Text
+                  style={{
+                    fontSize: FontSizes.semi,
+                    color: transactionHistory.isCashIn
+                      ? Colors.CASH_IN.text
+                      : Colors.CASH_OUT.text,
+                    fontWeight: "500",
+                  }}
+                >
+                  {displayAmount(transactionHistory)}
+                </Text>
+              </View>
+            );
+          })}
+        </ScrollView>
       </View>
     </View>
   );
 }
 
-const styleSheet = StyleSheet.create({
-  modal: {
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: Colors.default.background,
+  },
+  bottomSheet: {
     position: "absolute",
-    backgroundColor: "white",
-    width: SCREEN_WIDTH * 0.8,
-    height: SCREEN_HEIGHT * 0.8,
-    alignSelf: "center",
-    borderRadius: 15,
-    top: 60,
+    bottom: 0,
+    width: "100%",
+    height: "80%",
+    backgroundColor: "#FFFFFF",
+    borderStartStartRadius: 20,
+    borderEndStartRadius: 20,
   },
-  input: {
-    width: "90%",
-    height: 48,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: "#DDDDDD",
+  transactionHistoryList: {
+    width: "100%",
+    height: "auto",
+  },
+  transactionHistoryUnit: {
     display: "flex",
     flexDirection: "row",
-    alignItems: "center",
     justifyContent: "space-between",
-  },
-  inputInformation: {
-    display: "flex",
-    flexDirection: "row",
+    paddingHorizontal: 20,
     alignItems: "center",
-    justifyContent: "space-between",
-    paddingStart: 10,
+    marginBottom: 10,
   },
   image: {
-    width: 30,
-    height: 30,
-    borderRadius: 30,
+    width: 50,
+    height: 50,
+    borderRadius: 10,
+  },
+  transactionNameTimeImageContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
   },
 });

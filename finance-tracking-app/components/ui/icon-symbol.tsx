@@ -36,6 +36,8 @@ const MAPPING = {
   message: "message",
   "shield.checkerboard": "shield",
   lock: "lock",
+  "circle.badge.plus.fill": "add-circle-outline",
+  "grid.circle": "grid-view",
 } as IconMapping;
 
 /**
