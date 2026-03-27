@@ -24,6 +24,7 @@ const MAPPING = {
   "chart.bar": "bar-chart",
   "wallet.pass.fill": "wallet",
   "person.2": "person",
+  person: "person",
   "arrow.backward": "arrow-back",
   "square.and.arrow.down": "download",
   "chevron.backward": "chevron-left",
@@ -31,6 +32,10 @@ const MAPPING = {
   "chevron.down": "keyboard-arrow-down",
   calendar: "calendar-today",
   "plus.circle": "add-circle",
+  diamond: "diamond",
+  message: "message",
+  "shield.checkerboard": "shield",
+  lock: "lock",
 } as IconMapping;
 
 /**
