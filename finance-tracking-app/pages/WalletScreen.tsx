@@ -1,5 +1,6 @@
 import { IconSymbol } from "@/components/ui/icon-symbol";
 import { Colors, FontSizes } from "@/constants/theme";
+import { useState } from "react";
 import {
   Image,
   ScrollView,
@@ -10,6 +11,7 @@ import {
 } from "react-native";
 import { SFSymbols7_0 } from "sf-symbols-typescript";
 export default function WalletScreen() {
+  const [isPressTransactionsTab, setIsPressTransactionsTab] = useState(false);
   const transactionHistoryList = [
     {
       id: "1",
@@ -142,7 +144,7 @@ export default function WalletScreen() {
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "space-around",
-            marginBottom: 20,
+            marginBottom: 30,
           }}
         >
           {miniMenuList.map((item) => (
@@ -152,6 +154,7 @@ export default function WalletScreen() {
                 flexDirection: "column",
                 alignItems: "center",
               }}
+              key={item.id}
             >
               <TouchableOpacity
                 onPress={() => {
@@ -184,10 +187,64 @@ export default function WalletScreen() {
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "space-around",
+            backgroundColor: "#F4F6F6",
+            width: "80%",
+            alignSelf: "center",
+            height: "8%",
+            marginBottom: 20,
+            borderRadius: 15,
           }}
         >
-          <Text>Transactions</Text>
-          <Text>Upcoming Bills</Text>
+          <TouchableOpacity
+            style={{
+              width: "50%",
+              height: "90%",
+              borderRadius: 30,
+              backgroundColor: isPressTransactionsTab.valueOf()
+                ? "#FFFFFF"
+                : "#F4F6F6",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            onPress={() => {
+              setIsPressTransactionsTab(!isPressTransactionsTab.valueOf());
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 17,
+                color: Colors.light.icon,
+                fontWeight: "700",
+              }}
+            >
+              Transactions
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              width: "50%",
+              height: "90%",
+              borderRadius: 30,
+              backgroundColor: !isPressTransactionsTab.valueOf()
+                ? "#FFFFFF"
+                : "#F4F6F6",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            onPress={() => {
+              setIsPressTransactionsTab(!isPressTransactionsTab.valueOf());
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 17,
+                color: Colors.light.icon,
+                fontWeight: "700",
+              }}
+            >
+              Upcoming Bills
+            </Text>
+          </TouchableOpacity>
         </View>
 
         <ScrollView
