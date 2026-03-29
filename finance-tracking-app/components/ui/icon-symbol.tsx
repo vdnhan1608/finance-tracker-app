@@ -38,6 +38,7 @@ const MAPPING = {
   lock: "lock",
   "circle.badge.plus.fill": "add-circle-outline",
   "grid.circle": "grid-view",
+  "chevron.up": "keyboard-arrow-up",
 } as IconMapping;
 
 /**

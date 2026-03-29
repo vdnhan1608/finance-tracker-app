@@ -1,6 +1,16 @@
 import { Colors, FontSizes } from "@/constants/theme";
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import { useRouter } from "expo-router";
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 export default function TransactionHistory() {
+  const router = useRouter();
+
   const transactionHistoryList = [
     {
       id: "1",
@@ -79,6 +89,11 @@ export default function TransactionHistory() {
     const prefix = transaction.isCashIn ? "+" : "-";
     return `${prefix} ${transaction.amount} VND`;
   };
+
+  /** Function open transaction detail */
+  const openTransactionDetail = () => {
+    router.push("/transaction-detail");
+  };
   return (
     <View style={styles.container}>
       <View style={styles.title}>
@@ -93,9 +108,12 @@ export default function TransactionHistory() {
       >
         {transactionHistoryList.map((transactionHistory) => {
           return (
-            <View
+            <TouchableOpacity
               style={styles.transactionHistoryUnit}
               key={transactionHistory.id}
+              onPress={() => {
+                openTransactionDetail();
+              }}
             >
               <View style={styles.transactionNameTimeImageContainer}>
                 <Image
@@ -122,7 +140,7 @@ export default function TransactionHistory() {
               >
                 {displayAmount(transactionHistory)}
               </Text>
-            </View>
+            </TouchableOpacity>
           );
         })}
       </ScrollView>
