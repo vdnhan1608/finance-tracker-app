@@ -39,6 +39,8 @@ const MAPPING = {
   "circle.badge.plus.fill": "add-circle-outline",
   "grid.circle": "grid-view",
   "chevron.up": "keyboard-arrow-up",
+  creditcard: "credit-card",
+  circle: "check-circle",
 } as IconMapping;
 
 /**

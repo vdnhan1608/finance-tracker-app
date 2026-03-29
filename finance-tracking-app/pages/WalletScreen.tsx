@@ -1,6 +1,7 @@
 import { IconSymbol } from "@/components/ui/icon-symbol";
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from "@/constants/layout";
 import { Colors, FontSizes } from "@/constants/theme";
+import { useRouter } from "expo-router";
 import { useState } from "react";
 import {
   Image,
@@ -12,6 +13,8 @@ import {
 } from "react-native";
 import { SFSymbols7_0 } from "sf-symbols-typescript";
 export default function WalletScreen() {
+  const router = useRouter();
+
   const [isPressTransactionsTab, setIsPressTransactionsTab] = useState(false);
   const transactionHistoryList = [
     {
@@ -141,6 +144,11 @@ export default function WalletScreen() {
       text: "Send",
     },
   ];
+
+  /** Function open bill detail */
+  const openBillDetail = () => {
+    router.push("/bill-detail");
+  };
 
   // renders
   return (
@@ -375,6 +383,9 @@ export default function WalletScreen() {
                     alignItems: "center",
                     alignSelf: "center",
                     borderRadius: 15,
+                  }}
+                  onPress={() => {
+                    openBillDetail();
                   }}
                 >
                   <Text style={{ fontSize: 16, color: Colors.default.text }}>
