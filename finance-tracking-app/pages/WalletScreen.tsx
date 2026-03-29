@@ -1,4 +1,5 @@
 import { IconSymbol } from "@/components/ui/icon-symbol";
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from "@/constants/layout";
 import { Colors, FontSizes } from "@/constants/theme";
 import { useState } from "react";
 import {
@@ -84,6 +85,37 @@ export default function WalletScreen() {
       urlImage:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWK7U1qR8TSAuBf4OEb-SerRUliMZK3OwOeg&s",
       isCashIn: false,
+    },
+  ];
+
+  const upComingBillList = [
+    {
+      id: "1",
+      name: "Youtube",
+      urlImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWK7U1qR8TSAuBf4OEb-SerRUliMZK3OwOeg&s",
+      payDate: "Feb 28, 2022",
+    },
+    {
+      id: "2",
+      name: "Electricty",
+      urlImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWK7U1qR8TSAuBf4OEb-SerRUliMZK3OwOeg&s",
+      payDate: "Mar 28, 2022",
+    },
+    {
+      id: "3",
+      name: "House Rent",
+      urlImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWK7U1qR8TSAuBf4OEb-SerRUliMZK3OwOeg&s",
+      payDate: "Mar 28, 2022",
+    },
+    {
+      id: "4",
+      name: "Spotify",
+      urlImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_qQE4ee3JXx6L9fIo8B_nJwa6K7rvM_IGDg&s",
+      payDate: "Mar 31, 2022",
     },
   ];
 
@@ -247,45 +279,112 @@ export default function WalletScreen() {
           </TouchableOpacity>
         </View>
 
-        <ScrollView
-          style={styles.transactionHistoryList}
-          showsVerticalScrollIndicator={false}
-        >
-          {transactionHistoryList.map((transactionHistory) => {
-            return (
+        {isPressTransactionsTab.valueOf() ? (
+          /** Transaction History List */
+          <ScrollView
+            style={styles.transactionHistoryList}
+            showsVerticalScrollIndicator={false}
+          >
+            {transactionHistoryList.map((transactionHistory) => {
+              return (
+                <View
+                  style={styles.transactionHistoryUnit}
+                  key={transactionHistory.id}
+                >
+                  <View style={styles.transactionNameTimeImageContainer}>
+                    <Image
+                      style={styles.image}
+                      source={{ uri: transactionHistory.urlImage }}
+                    ></Image>
+                    <View style={{ marginLeft: 20 }}>
+                      <Text style={{ fontSize: 19, fontWeight: "500" }}>
+                        {transactionHistory.name}
+                      </Text>
+                      <Text style={{ fontSize: 16 }}>
+                        {transactionHistory.time}
+                      </Text>
+                    </View>
+                  </View>
+                  <Text
+                    style={{
+                      fontSize: FontSizes.semi,
+                      color: transactionHistory.isCashIn
+                        ? Colors.CASH_IN.text
+                        : Colors.CASH_OUT.text,
+                      fontWeight: "500",
+                    }}
+                  >
+                    {displayAmount(transactionHistory)}
+                  </Text>
+                </View>
+              );
+            })}
+          </ScrollView>
+        ) : (
+          /** Upcoming Bills */
+          <ScrollView
+            style={{
+              ...styles.transactionHistoryList,
+            }}
+            showsVerticalScrollIndicator={false}
+          >
+            {upComingBillList.map((item) => (
               <View
-                style={styles.transactionHistoryUnit}
-                key={transactionHistory.id}
+                key={item.id}
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  width: SCREEN_WIDTH,
+                  height: SCREEN_HEIGHT * 0.05,
+                  marginBottom: 10,
+                  paddingHorizontal: 20,
+                }}
               >
-                <View style={styles.transactionNameTimeImageContainer}>
+                <View style={{ flexDirection: "row" }}>
                   <Image
-                    style={styles.image}
-                    source={{ uri: transactionHistory.urlImage }}
+                    style={{ ...styles.image, alignSelf: "center" }}
+                    source={{ uri: item.urlImage }}
                   ></Image>
-                  <View style={{ marginLeft: 20 }}>
-                    <Text style={{ fontSize: 19, fontWeight: "500" }}>
-                      {transactionHistory.name}
+                  <View
+                    style={{
+                      flexDirection: "column",
+                      justifyContent: "space-around",
+                      marginStart: 10,
+                    }}
+                  >
+                    <Text
+                      style={{
+                        fontSize: 16,
+                        fontWeight: "700",
+                        color: "#000000",
+                      }}
+                    >
+                      {item.name}
                     </Text>
-                    <Text style={{ fontSize: 16 }}>
-                      {transactionHistory.time}
+                    <Text style={{ fontSize: 13, color: Colors.dark.icon }}>
+                      {item.payDate}
                     </Text>
                   </View>
                 </View>
-                <Text
+                <TouchableOpacity
                   style={{
-                    fontSize: FontSizes.semi,
-                    color: transactionHistory.isCashIn
-                      ? Colors.CASH_IN.text
-                      : Colors.CASH_OUT.text,
-                    fontWeight: "500",
+                    width: "20%",
+                    height: 40,
+                    backgroundColor: Colors.default.background,
+                    justifyContent: "center",
+                    alignItems: "center",
+                    alignSelf: "center",
+                    borderRadius: 15,
                   }}
                 >
-                  {displayAmount(transactionHistory)}
-                </Text>
+                  <Text style={{ fontSize: 16, color: Colors.default.text }}>
+                    Pay
+                  </Text>
+                </TouchableOpacity>
               </View>
-            );
-          })}
-        </ScrollView>
+            ))}
+          </ScrollView>
+        )}
       </View>
     </View>
   );
