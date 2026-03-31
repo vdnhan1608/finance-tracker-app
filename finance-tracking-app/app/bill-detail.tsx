@@ -1,9 +1,11 @@
 import { IconSymbol } from "@/components/ui/icon-symbol";
 import { Colors } from "@/constants/theme";
-import { Stack } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function BillDetail() {
+  const router = useRouter();
+
   const headerView = () => {
     return (
       <View
@@ -72,6 +74,11 @@ export default function BillDetail() {
         </Text>
       </View>
     );
+  };
+
+  /** Function open bill payment */
+  const openBillPayment = () => {
+    router.push("/bill-payment");
   };
 
   return (
@@ -225,6 +232,9 @@ export default function BillDetail() {
             marginHorizontal: 35,
             borderRadius: 50,
             marginTop: 30,
+          }}
+          onPress={() => {
+            openBillPayment();
           }}
         >
           <Text
