@@ -1,9 +1,11 @@
 import { IconSymbol } from "@/components/ui/icon-symbol";
 import { Colors } from "@/constants/theme";
-import { Stack } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function BillPayment() {
+  const router = useRouter();
+
   const headerView = () => {
     return (
       <View
@@ -135,6 +137,9 @@ export default function BillPayment() {
             borderRadius: 30,
             bottom: 0,
             marginBottom: 20,
+          }}
+          onPress={() => {
+            router.push("/bill-payment-success");
           }}
         >
           <Text style={{ fontSize: 18, color: "#FFFFFF", fontWeight: "400" }}>

@@ -1,47 +1,41 @@
-import { Colors, FontSizes } from "@/constants/theme";
-import { View, StyleSheet, Text, Dimensions } from "react-native";
+import { Colors } from "@/constants/theme";
+import { Text, TouchableOpacity, View } from "react-native";
+import { IconSymbol } from "./ui/icon-symbol";
 
-const HEADER_HEIGHT = 250;
-
-export default function Header() {
+export default function Header(props: { name: String }) {
   return (
-    <View style={styles.header}>
-      <View style={styles.information}>
-        <Text style={{ ...styles.content, fontSize: FontSizes.normal }}>
-          Good afternoon,
-        </Text>
-        <Text
-          style={{
-            ...styles.content,
-            fontSize: FontSizes.title,
-            fontWeight: "500",
-          }}
-        >
-          Vo Duy Nhan
-        </Text>
-      </View>
+    <View
+      style={{
+        position: "absolute",
+        left: 0,
+        right: 0,
+        height: "20%",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        paddingTop: "10%",
+      }}
+    >
+      <TouchableOpacity
+        onPress={() => {
+          console.log("chevron.backward");
+        }}
+      >
+        <IconSymbol
+          size={28}
+          name="chevron.backward"
+          color={Colors.default.text}
+        />
+      </TouchableOpacity>
+      <Text style={{ fontSize: 18, color: Colors.default.text }}>
+        {props.name}
+      </Text>
+      <TouchableOpacity
+        onPress={() => {
+          console.log("Press ellipsis");
+        }}
+      >
+        <IconSymbol size={28} name="ellipsis" color={Colors.default.text} />
+      </TouchableOpacity>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  header: {
-    height: HEADER_HEIGHT,
-    overflow: "hidden",
-    borderBottomStartRadius: 100,
-    borderBottomEndRadius: 100,
-    backgroundColor: Colors.default.background,
-    width: "100%",
-  },
-  content: {
-    paddingBottom: 0.05,
-    color: Colors.default.text,
-  },
-  information: {
-    marginTop: Dimensions.get("window").height * 0.01,
-    marginLeft: Dimensions.get("window").width * 0.01,
-  },
-});

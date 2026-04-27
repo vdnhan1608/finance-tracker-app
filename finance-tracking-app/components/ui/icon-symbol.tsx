@@ -41,6 +41,7 @@ const MAPPING = {
   "chevron.up": "keyboard-arrow-up",
   creditcard: "credit-card",
   circle: "check-circle",
+  "checkmark.circle": "check-circle",
 } as IconMapping;
 
 /**
