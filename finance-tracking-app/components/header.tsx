@@ -1,8 +1,11 @@
 import { Colors } from "@/constants/theme";
+import { useRouter } from "expo-router";
 import { Text, TouchableOpacity, View } from "react-native";
 import { IconSymbol } from "./ui/icon-symbol";
 
 export default function Header(props: { name: String }) {
+  const router = useRouter();
+
   return (
     <View
       style={{
@@ -17,7 +20,7 @@ export default function Header(props: { name: String }) {
     >
       <TouchableOpacity
         onPress={() => {
-          console.log("chevron.backward");
+          router.back();
         }}
       >
         <IconSymbol

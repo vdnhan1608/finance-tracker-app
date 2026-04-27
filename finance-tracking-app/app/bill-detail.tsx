@@ -1,3 +1,6 @@
+import Background from "@/components/back-ground";
+import Header from "@/components/header";
+import TitleValueView from "@/components/title-value-view";
 import { IconSymbol } from "@/components/ui/icon-symbol";
 import { Colors } from "@/constants/theme";
 import { Stack, useRouter } from "expo-router";
@@ -5,76 +8,6 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function BillDetail() {
   const router = useRouter();
-
-  const headerView = () => {
-    return (
-      <View
-        style={{
-          position: "absolute",
-          left: 0,
-          right: 0,
-          height: "20%",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          paddingTop: "10%",
-        }}
-      >
-        <TouchableOpacity
-          onPress={() => {
-            console.log("chevron.backward");
-          }}
-        >
-          <IconSymbol
-            size={28}
-            name="chevron.backward"
-            color={Colors.default.text}
-          />
-        </TouchableOpacity>
-        <Text style={{ fontSize: 18, color: Colors.default.text }}>
-          Bill Details
-        </Text>
-        <TouchableOpacity
-          onPress={() => {
-            console.log("Press ellipsis");
-          }}
-        >
-          <IconSymbol size={28} name="ellipsis" color={Colors.default.text} />
-        </TouchableOpacity>
-      </View>
-    );
-  };
-
-  const titleValueView = (title: String, value: String) => {
-    return (
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          paddingHorizontal: 20,
-          paddingVertical: 10,
-        }}
-      >
-        <Text
-          style={{
-            fontSize: 16,
-            fontWeight: "500",
-            color: Colors.light.icon,
-          }}
-        >
-          {title}
-        </Text>
-        <Text
-          style={{
-            fontSize: 16,
-            fontWeight: "500",
-            color: "#000000",
-          }}
-        >
-          {value}
-        </Text>
-      </View>
-    );
-  };
 
   /** Function open bill payment */
   const openBillPayment = () => {
@@ -84,8 +17,8 @@ export default function BillDetail() {
   return (
     <>
       <Stack.Screen options={{ headerShown: false }} />
-      <View style={styles.container}></View>
-      {headerView()}
+      <Background />
+      <Header name="Bill Detail" />
       <View style={styles.bottomSheet}>
         <View
           style={{
@@ -125,8 +58,8 @@ export default function BillDetail() {
             marginTop: 20,
           }}
         >
-          {titleValueView("Price", "$ 11.99")}
-          {titleValueView("Fee", "$ 1.99")}
+          <TitleValueView title="Price" value="$ 11.99" />
+          <TitleValueView title="Fee" value="$ 1.99" />
           <View
             style={{
               borderBottomWidth: 1,
@@ -136,7 +69,7 @@ export default function BillDetail() {
             }}
           />
         </View>
-        {titleValueView("Total", "$ 13.98")}
+        <TitleValueView title="Total" value="$ 13.98" />
 
         <Text style={{ fontSize: 18, fontWeight: "500", padding: 20 }}>
           Select payment method
@@ -254,10 +187,6 @@ export default function BillDetail() {
   );
 }
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.default.background,
-  },
   bottomSheet: {
     position: "absolute",
     bottom: 0,
