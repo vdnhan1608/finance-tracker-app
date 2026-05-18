@@ -14,8 +14,7 @@ public class UserController {
     UserService userService;
 
     @RequestMapping("/")
-    String getUsers() {
-        List<UserEntity> userEntities =  userService.getUsers();
-        return "Hello World!";
+    List<UserEntity> getUsers() {
+        return userService.getUsers();
     }
 }
