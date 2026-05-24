@@ -1,7 +1,9 @@
 package com.financetracking.finance_service.service;
 
+import com.financetracking.finance_service.constant.UserStatus;
 import com.financetracking.finance_service.entity.UserEntity;
 import com.financetracking.finance_service.repository.UserRepository;
+import com.financetracking.finance_service.request.UserRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,5 +24,13 @@ public class UserService {
     public UserEntity getUserById(UUID userId) {
         Optional<UserEntity> userEntity = userRepository.findById(userId);
         return userEntity.orElse(new UserEntity());
+    }
+
+    public UserEntity createUser(UserRequest request) {
+        UserEntity newEntity = new UserEntity();
+        newEntity.setName(request.getName());
+        newEntity.setEmail(request.getEmail());
+        newEntity.setStatus(UserStatus.NEW.getValue()); // newly added
+        return userRepository.save(newEntity);
     }
 }

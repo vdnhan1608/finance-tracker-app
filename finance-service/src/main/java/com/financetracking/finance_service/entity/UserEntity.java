@@ -14,11 +14,11 @@ import java.util.UUID;
 @Setter
 public class UserEntity {
     @Id
-    UUID id;
-    String email;
-    String name;
-    String status;
-    LocalDate createdAt;
-    LocalDate updatedAt;
-    LocalDate deleted_at;
+    private UUID id;
+    private String email;
+    private String name;
+    private String status;
+    private LocalDate createdAt;
+    private LocalDate updatedAt;
+    private LocalDate deletedAt;
 }
