@@ -1,0 +1,25 @@
+package com.financetracking.finance_service.service;
+
+import com.financetracking.finance_service.entity.CategoryEntity;
+import com.financetracking.finance_service.repository.CategoryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
+@Service
+public class CategoryService {
+    @Autowired
+    CategoryRepository categoryRepository;
+
+    public List<CategoryEntity> getCategories() {
+        return categoryRepository.findAll();
+    }
+
+    public CategoryEntity getCategoryById(UUID categoryId) {
+        Optional<CategoryEntity> categoryEntity = categoryRepository.findById(categoryId);
+        return categoryEntity.orElse(new CategoryEntity());
+    }
+}
