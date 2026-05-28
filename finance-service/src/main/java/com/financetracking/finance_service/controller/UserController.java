@@ -25,8 +25,18 @@ public class UserController {
         return userService.getUserById(UUID.fromString(userId));
     }
 
-    @PostMapping("/{userId}")
+    @PostMapping("")
     UserEntity createUser(@RequestBody UserRequest request) {
         return userService.createUser(request);
+    }
+
+    @PutMapping("/{userId}")
+    UserEntity updateUser(@PathVariable String userId, @RequestBody UserRequest request) {
+        return userService.updateUser(UUID.fromString(userId), request);
+    }
+
+    @DeleteMapping("/{userId}")
+    void deleteUser(@PathVariable String userId) {
+        userService.deleteUser(UUID.fromString(userId));
     }
 }

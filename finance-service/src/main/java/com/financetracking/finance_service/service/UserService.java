@@ -33,4 +33,18 @@ public class UserService {
         newEntity.setStatus(UserStatus.NEW.getValue()); // newly added
         return userRepository.save(newEntity);
     }
+
+
+    public UserEntity updateUser(UUID userId, UserRequest request) {
+        UserEntity userEntity = new UserEntity();
+        userEntity.setId(userId);
+        userEntity.setName(request.getName());
+        userEntity.setEmail(request.getEmail());
+        userEntity.setStatus(request.getStatus());
+        return userRepository.save(userEntity);
+    }
+
+    public void deleteUser(UUID userId) {
+        userRepository.deleteById(userId);
+    }
 }
