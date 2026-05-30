@@ -2,11 +2,10 @@ package com.financetracking.finance_service.controller;
 
 import com.financetracking.finance_service.entity.CategoryEntity;
 import com.financetracking.finance_service.entity.UserEntity;
+import com.financetracking.finance_service.request.CategoryReqest;
 import com.financetracking.finance_service.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -27,4 +26,8 @@ public class CategoryController {
         return categoryService.getCategoryById(UUID.fromString(categoryId));
     }
 
+    @PostMapping("")
+    CategoryEntity createCategory(@RequestBody CategoryReqest request) {
+        return categoryService.createCategory(request);
+    }
 }
