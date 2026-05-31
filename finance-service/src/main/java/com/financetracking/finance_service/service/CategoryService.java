@@ -31,4 +31,16 @@ public class CategoryService {
         newEntity.setType(request.getType());
         return categoryRepository.save(newEntity);
     }
+
+    public CategoryEntity updateCategory(UUID categoryId, CategoryReqest request) {
+        CategoryEntity categoryEntity = new CategoryEntity();
+        categoryEntity.setId(categoryId);
+        categoryEntity.setName(request.getName());
+        categoryEntity.setType(request.getType());
+        return categoryRepository.save(categoryEntity);
+    }
+
+    public void deleteCategory(UUID categoryId) {
+        categoryRepository.deleteById(categoryId);
+    }
 }

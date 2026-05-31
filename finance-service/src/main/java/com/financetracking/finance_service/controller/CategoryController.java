@@ -30,4 +30,14 @@ public class CategoryController {
     CategoryEntity createCategory(@RequestBody CategoryReqest request) {
         return categoryService.createCategory(request);
     }
+
+    @PutMapping("/{categoryId}")
+    CategoryEntity updateCategory(@PathVariable UUID categoryId, @RequestBody CategoryReqest request) {
+        return categoryService.updateCategory(categoryId, request);
+    }
+
+    @DeleteMapping("/{categoryId}")
+    void deleteCategory(@PathVariable UUID categoryId) {
+        categoryService.deleteCategory(categoryId);
+    }
 }
