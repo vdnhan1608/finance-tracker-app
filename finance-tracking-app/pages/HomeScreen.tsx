@@ -6,7 +6,7 @@ import { Dimensions, StyleSheet, View } from "react-native";
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Header></Header>
+      <Header name="Test"></Header>
       <ModalScreen />
       <TransactionHistory></TransactionHistory>
     </View>

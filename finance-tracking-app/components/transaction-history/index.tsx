@@ -1,4 +1,5 @@
 import { Colors, FontSizes } from "@/constants/theme";
+import transactionService from "@/service/transaction.service";
 import { useRouter } from "expo-router";
 import {
   Image,
@@ -10,7 +11,8 @@ import {
 } from "react-native";
 export default function TransactionHistory() {
   const router = useRouter();
-
+  const data = transactionService.getTransactions();
+  console.log("data ", data);
   const transactionHistoryList = [
     {
       id: "1",
