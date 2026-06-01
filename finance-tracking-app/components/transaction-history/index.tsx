@@ -1,6 +1,7 @@
 import { Colors, FontSizes } from "@/constants/theme";
 import transactionService from "@/service/transaction.service";
 import { useRouter } from "expo-router";
+import { useEffect } from "react";
 import {
   Image,
   ScrollView,
@@ -11,8 +12,12 @@ import {
 } from "react-native";
 export default function TransactionHistory() {
   const router = useRouter();
-  const data = transactionService.getTransactions();
-  console.log("data ", data);
+  useEffect(() => {
+    transactionService.getTransactions().then((data) => {
+      console.log("data  hahah", data);
+    });
+  });
+
   const transactionHistoryList = [
     {
       id: "1",
