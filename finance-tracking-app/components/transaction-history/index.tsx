@@ -158,15 +158,19 @@ export default function TransactionHistory() {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    height: "100%",
-    marginTop: 40,
+    height: "70%",
+    marginTop: 100,
+    position: "absolute",
+    bottom: 0,
+    backgroundColor: "#FFFFFF",
   },
   title: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     paddingHorizontal: 20,
-    marginVertical: 20,
+    marginTop: 100,
+    marginBottom: 20,
   },
   transactionHistoryList: {
     width: "100%",

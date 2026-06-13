@@ -42,6 +42,7 @@ const MAPPING = {
   creditcard: "credit-card",
   circle: "check-circle",
   "checkmark.circle": "check-circle",
+  bell: "notifications-none",
 } as IconMapping;
 
 /**

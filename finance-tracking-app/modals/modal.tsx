@@ -1,35 +1,65 @@
-import { SCREEN_HEIGHT, SCREEN_WIDTH } from "@/constants/layout";
+import { IconSymbol } from "@/components/ui/icon-symbol";
 import { Colors } from "@/constants/theme";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function ModalScreen() {
   return (
-    <View style={styles.modalContainer}>
-      <View style={styles.modalView}>
-        <View>
-          <Text style={{ ...styles.modalText, fontSize: 19 }}>
-            Total Balance
-          </Text>
-          <Text style={{ ...styles.modalText, fontSize: 36 }}>$ 2,548.00</Text>
-        </View>
-        <View
-          style={{
-            width: "100%",
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-around",
+    <View style={styles.modalView}>
+      <View
+        style={{
+          width: "100%",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          paddingHorizontal: 20,
+        }}
+      >
+        <Text style={{ ...styles.modalText, fontSize: 19, textAlign: "left" }}>
+          Total Balance{"\n"}
+          <Text style={{ fontSize: 36 }}>$ 2,548.00</Text>
+        </Text>
+
+        <TouchableOpacity
+          onPress={() => {
+            console.log("Press ellipsis");
           }}
         >
-          <View style={{ marginBottom: 10 }}>
-            <Text style={{ ...styles.modalText, fontSize: 19 }}>Income</Text>
-            <Text style={{ ...styles.modalText, fontSize: 24 }}>
-              $ 1,840.00
-            </Text>
-          </View>
-          <View>
-            <Text style={{ ...styles.modalText, fontSize: 19 }}>Expenses</Text>
-            <Text style={{ ...styles.modalText, fontSize: 24 }}>$ 284.00</Text>
-          </View>
+          <IconSymbol size={28} name="ellipsis" color={Colors.default.text} />
+        </TouchableOpacity>
+      </View>
+      <View
+        style={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          paddingHorizontal: 20,
+        }}
+      >
+        <View style={{ marginBottom: 10 }}>
+          <Text
+            style={{
+              ...styles.modalText,
+              fontSize: 19,
+              lineHeight: 30,
+              textAlign: "left",
+            }}
+          >
+            Income{"\n"}
+            <Text style={{ fontSize: 24 }}>$ 1,840.00</Text>
+          </Text>
+        </View>
+        <View>
+          <Text
+            style={{
+              ...styles.modalText,
+              fontSize: 19,
+              lineHeight: 30,
+              textAlign: "left",
+            }}
+          >
+            Expenses{"\n"}
+            <Text style={{ fontSize: 24 }}>$ 284.00</Text>
+          </Text>
         </View>
       </View>
     </View>
@@ -37,21 +67,18 @@ export default function ModalScreen() {
 }
 
 const styles = StyleSheet.create({
-  modalContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    top: -70, // TODO
-  },
   modalText: {
     marginBottom: 15,
     textAlign: "center",
     color: Colors.default.text,
   },
   modalView: {
-    marginBottom: 10,
     position: "absolute",
-
+    alignSelf: "center",
+    left: 20,
+    right: 20,
+    top: 130,
+    paddingTop: 25,
     backgroundColor: "#1B5C58",
     borderRadius: 20,
     alignItems: "center",
@@ -66,8 +93,6 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-around",
-    width: "auto",
-    height: "auto",
-    paddingTop: 20,
+    zIndex: 99,
   },
 });
